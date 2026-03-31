@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galéria – Pilisszentkereszti Szlovák Nemzetiségi Óvoda</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #46AADC;
+      --dark:    #3B4757;
+      --text:    #555;
+      --teal:    #76BEBA;
+      --bg-light:#F0F8FA;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; color: var(--text); font-size: 16px; line-height: 1.7; }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(70,170,220,.12);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-inner {
+      max-width: 1140px; margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .logo-icon { height: 70px; flex-shrink: 0; }
+    .logo-icon img { height: 100%; width: auto; display: block; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-text .main-name {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+      color: var(--dark); line-height: 1.25;
+    }
+    .logo-text .sub-name {
+      font-family: 'Poppins', sans-serif; font-size: 12px; color: var(--blue); font-weight: 500;
+    }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px;
+      color: var(--dark); text-decoration: none; transition: color .2s;
+    }
+    nav a:hover, nav a.active { color: var(--blue); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 3px; background: var(--dark); border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none; flex-direction: column;
+        position: absolute; top: 76px; left: 0; right: 0;
+        background: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.1);
+        padding: 24px; gap: 18px; z-index: 99;
+      }
+      nav.open { display: flex; }
+      .hamburger { display: flex; }
+      .logo-icon { height: 48px; }
+      .logo-text .main-name { font-size: 12px; }
+      .logo-text .sub-name { font-size: 10px; }
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: #fff;
+      padding: 48px 24px 40px;
+    }
+    .page-hero .container { max-width: 1140px; margin: 0 auto; }
+    .page-hero .breadcrumb {
+      font-size: 13px; color: var(--blue); margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .page-hero .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .page-hero .breadcrumb a:hover { text-decoration: underline; }
+    .page-hero h1 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: clamp(28px, 5vw, 42px); color: var(--dark);
+    }
+
+    /* CONTENT */
+    .content { max-width: 1140px; margin: 0 auto; padding: 80px 24px; }
+
+    .coming-soon {
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .coming-soon .icon {
+      width: 90px; height: 90px;
+      background: var(--bg-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .coming-soon .icon svg { width: 44px; height: 44px; fill: var(--blue); opacity: .7; }
+    .coming-soon h2 {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 24px; color: var(--dark); margin-bottom: 12px;
+    }
+    .coming-soon p { font-size: 16px; color: var(--text); max-width: 420px; margin: 0 auto; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 32px;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px;
+      color: var(--blue); text-decoration: none;
+      border: 2px solid var(--blue); border-radius: 50px;
+      padding: 10px 24px; transition: background .2s, color .2s;
+    }
+    .back-btn:hover { background: var(--blue); color: #fff; }
+    .back-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,.75); padding: 52px 24px 28px; }
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px;
+    }
+    @media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } }
+    .footer-brand .logo-wrap { margin-bottom: 16px; }
+    .footer-brand .logo-text .main-name { color: #fff; }
+    .footer-brand p { font-size: 14px; line-height: 1.75; }
+    .footer-col h5 {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px;
+      color: #fff; margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,.7); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--blue); }
+    .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer-contact .fc-item { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+    .footer-contact .fc-item svg { width: 18px; height: 18px; fill: var(--blue); flex-shrink: 0; margin-top: 2px; }
+    .footer-bottom {
+      max-width: 1140px; margin: 40px auto 0;
+      padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center; font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index.html">
+      <div class="logo-icon"><img src="logo.jpg" alt="Óvoda logó" /></div>
+      <div class="logo-text">
+        <span class="main-name">Pilisszentkereszti Szlovák<br>Nemzetiségi Óvoda</span>
+        <span class="sub-name">Slovenská národnostná škôlka Mlynky</span>
+      </div>
+    </a>
+    <nav id="main-nav">
+      <a href="index.html#services">Tevékenységek</a>
+      <a href="index.html#about">Az óvodáról</a>
+      <a href="index.html#documents">Dokumentumok</a>
+      <a href="galeria.html" class="active">Galéria</a>
+      <a href="hirek.html">Hírek</a>
+      <a href="index.html#contact">Kapcsolat</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="document.getElementById('main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Főoldal</a> / Galéria</div>
+    <h1>Galéria</h1>
+  </div>
+</div>
+
+<div class="content">
+  <div class="coming-soon">
+    <div class="icon">
+      <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+    </div>
+    <h2>Feltöltés alatt...</h2>
+    <p>A galéria hamarosan elérhető lesz. Kérjük, látogasson vissza később!</p>
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Vissza a főoldalra
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo-wrap" href="index.html">
+        <div class="logo-icon"><img src="logo.jpg" alt="Óvoda logó" /></div>
+        <div class="logo-text">
+          <span class="main-name">Pilisszentkereszti Szlovák<br>Nemzetiségi Óvoda</span>
+          <span class="sub-name">Slovenská národnostná škôlka Mlynky</span>
+        </div>
+      </a>
+      <p>Óvodánk legyen az a hely, ahol mindenki jól érzi magát, felnőtt és gyerek is.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Gyors linkek</h5>
+      <ul>
+        <li><a href="index.html#about">Az óvodáról</a></li>
+        <li><a href="index.html#services">Tevékenységek</a></li>
+        <li><a href="index.html#documents">Dokumentumok</a></li>
+        <li><a href="galeria.html">Galéria</a></li>
+        <li><a href="hirek.html">Hírek</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Elérhetőség</h5>
+      <div class="footer-contact">
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span>2098 Pilisszentkereszt, Mester u. 2.</span>
+        </div>
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.39 21 3 14.61 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+          <span>06 26 347–530</span>
+        </div>
+        <div class="fc-item">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>pilisszentkereszt@ovimlynky.t-online.hu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Pilisszentkereszti Szlovák Nemzetiségi Óvoda · Slovenská národnostná škôlka Mlynky</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('#main-nav a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('main-nav').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
