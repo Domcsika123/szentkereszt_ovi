@@ -515,6 +515,38 @@
       text-align: center;
       font-size: 13px;
     }
+    .footer-bottom .auracode-credit {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .footer-bottom .auracode-credit a {
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .5px;
+      transition: opacity .2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-bottom .auracode-credit a:hover { opacity: .85; }
+    .auracode-text .aura { color: #ffffff; }
+    .auracode-text .code {
+      background: linear-gradient(90deg, #00ff41 0%, #00e6b8 50%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .auracode-logo {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: block;
+      filter: brightness(1.15) saturate(1.3);
+    }
   </style>
 </head>
 <body>
@@ -803,6 +835,13 @@
 
   <div class="footer-bottom">
     <p>&copy; 2025 Pilisszentkereszti Szlovák Nemzetiségi Óvoda · Slovenská národnostná škôlka Mlynky</p>
+    <div class="auracode-credit">
+      <span>Honlapot készítette:</span>
+      <a href="https://auracode.hu" target="_blank" rel="noopener">
+        <img src="auracode_logo.png" alt="AuraCode logo" class="auracode-logo">
+      </a>
+      <a href="https://auracode.hu" target="_blank" rel="noopener" class="auracode-text"><span class="aura">Aura</span><span class="code">Code.hu</span></a>
+    </div>
   </div>
 </footer>
 
