@@ -35,7 +35,9 @@
       box-shadow: 0 2px 16px rgba(70,170,220,.12);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
+      overflow: hidden;
+      border-top: 4px solid #fff;
     }
 
     .header-inner {
@@ -587,9 +589,7 @@
     .hero-inner .slovak        { animation-delay: .75s; }
     .hero-inner .hero-address  { animation-delay: 1.05s; }
 
-    header {
-      animation: heroFadeIn 1.2s ease-out both;
-    }
+    /* header animáció eltávolítva – azonnal látható */
 
     /* Respect user motion preferences */
     @media (prefers-reduced-motion: reduce) {
@@ -731,7 +731,7 @@
 
         <p>Óvodánk az 1902–1903-as tanévben nyitotta meg kapuit Állami Kisdedóvó néven. Jelenleg is ebben az épületben folyik az óvodai nevelés-oktatás, helyi nevelési program alapján. A program nevelésfilozófiájának meghatározásakor figyelembevettük a helyi társadalmi elvárásokból fakadó feladatokat, a gyermekek és a szülők igényeit.</p>
 
-        <p>A nemzetiségi nevelést folytató óvodánkban mindkét nyelv (a kisebbségi és a magyar nyelv) fejlesztését végezzük. Gyermekeink nevelése négy csoportban történik, az óvodai nevelőmunkát hét óvónő és az óvodavezető látja el. Mindnyájan nyelvoktató képesítéssel is rendelkeznek, így a nemzetiségi nyelv ápolása biztosított. Négy dajka segíti közvetlenül nevelő munkánkat.</p>
+        <p>A nemzetiségi nevelést folytató óvodánkban mindkét nyelv (a kisebbségi és a magyar nyelv) fejlesztését végezzük. Óvodapedagógusaink nyelvoktató képesítéssel is rendelkeznek, így a nemzetiségi nyelv ápolása biztosított. Munkájukat dajkák és pedagógiai asszisztensek segítik.</p>
 
         <p>Óvodánk zárt óvodai játszótérrel rendelkezik, amely az iskolai udvaron keresztül biztonságosan megközelíthető. Homokozók, hinták, mászókák és más mozgásfejlesztő játékszerek biztosítják a játéklehetőséget gyermekeink számára, amelyeket lehetőségeinkhez mérten folyamatosan megújítunk.</p>
 
@@ -756,7 +756,7 @@
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.39 21 3 14.61 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
           </div>
           <div>
-            <h4>Telefonszám / Fax</h4>
+            <h4>Telefonszám</h4>
             <p><a href="tel:+3626347530">06 26 347–530</a></p>
           </div>
         </div>
@@ -781,15 +781,6 @@
           </div>
         </div>
 
-        <div class="info-card" data-reveal="right" style="--reveal-delay:.65s">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <div>
-            <h4>Csoportok és személyzet</h4>
-            <p>4 csoport · 7 óvónő + vezető · 4 dajka</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
