@@ -186,6 +186,42 @@
         transition: none !important;
       }
     }
+
+    /* ── ADATVÉDELEM MENÜ ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px;
+      color: var(--dark); background: none; border: 0; padding: 0; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 2px; transition: color .2s;
+    }
+    .nav-dropdown-toggle svg { width: 20px; height: 20px; fill: currentColor; transition: transform .2s; }
+    .nav-dropdown:hover .nav-dropdown-toggle,
+    .nav-dropdown.open .nav-dropdown-toggle { color: var(--blue); }
+    .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: calc(100% + 14px); right: 0; min-width: 300px;
+      background: #fff; border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.14);
+      padding: 8px; display: none; flex-direction: column; gap: 2px; z-index: 120;
+    }
+    .nav-dropdown-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu { display: flex; }
+    nav .nav-dropdown-menu a {
+      font-size: 14px; font-weight: 500; padding: 10px 14px; border-radius: 8px; white-space: nowrap;
+    }
+    nav .nav-dropdown-menu a:hover { background: rgba(70,170,220,.1); }
+    @media (max-width: 768px) {
+      .nav-dropdown-menu {
+        position: static; box-shadow: none; min-width: 0; padding: 8px 0 0 14px; display: flex;
+      }
+      .nav-dropdown-menu::before { display: none; }
+      nav .nav-dropdown-menu a { white-space: normal; padding: 6px 0; }
+      .nav-dropdown-toggle svg { display: none; }
+    }
+    @media (min-width: 769px) {
+      .footer-inner { grid-template-columns: 1.3fr .8fr 1.1fr 1.3fr; }
+    }
   </style>
 </head>
 <body>
@@ -205,6 +241,18 @@
       <a href="index.html#documents">Dokumentumok</a>
       <a href="galeria.html" class="active">Galéria</a>
       <a href="hirek.html">Hírek</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"
+                onclick="var d=this.parentNode;d.classList.toggle('open');this.setAttribute('aria-expanded',d.classList.contains('open'))">
+          Adatvédelem
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="Adatvédelmi és adatbiztonsági szabályzat.pdf" target="_blank" rel="noopener">Adatvédelmi és adatbiztonsági szabályzat</a>
+          <a href="Adatkezelési- és Süti tájékoztató Pilisszentkereszti Szlovák Nemzetiségi Óvoda és Főzőkonyha.pdf" target="_blank" rel="noopener">Adatkezelési- és Süti tájékoztató</a>
+          <a href="Adatkezelői nyilvántartás Pilisszentkereszti Szlovák Nemzetiségi Óvoda és Főzőkonyha 2026.pdf" target="_blank" rel="noopener">Adatkezelői nyilvántartás</a>
+        </div>
+      </div>
       <a href="index.html#contact">Kapcsolat</a>
     </nav>
     <div class="hamburger" id="hamburger" onclick="document.getElementById('main-nav').classList.toggle('open')">
@@ -256,6 +304,15 @@
         <li><a href="hirek.html">Hírek</a></li>
       </ul>
     </div>
+    <div class="footer-col" data-reveal style="--reveal-delay:.22s">
+      <h5>Adatvédelem</h5>
+      <ul>
+        <li><a href="Adatvédelmi és adatbiztonsági szabályzat.pdf" target="_blank" rel="noopener">Adatvédelmi és adatbiztonsági szabályzat</a></li>
+        <li><a href="Adatkezelési- és Süti tájékoztató Pilisszentkereszti Szlovák Nemzetiségi Óvoda és Főzőkonyha.pdf" target="_blank" rel="noopener">Adatkezelési- és Süti tájékoztató</a></li>
+        <li><a href="Adatkezelői nyilvántartás Pilisszentkereszti Szlovák Nemzetiségi Óvoda és Főzőkonyha 2026.pdf" target="_blank" rel="noopener">Adatkezelői nyilvántartás</a></li>
+      </ul>
+    </div>
+
     <div class="footer-col" data-reveal style="--reveal-delay:.3s">
       <h5>Elérhetőség</h5>
       <div class="footer-contact">
